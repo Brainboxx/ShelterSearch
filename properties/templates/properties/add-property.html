@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+
+{% block title %}add property {% endblock %}
+
+{% block content %}
+<style>
+    body {
+      display: fixed;
+      align-items: center;
+      background-color: #f8f9fa;
+      margin-top: 50px;
+      justify-content: center;
+    }
+
+    .add-property-form {
+      margin-top: 100px;
+      max-width: 360px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .add-property-form h2 {
+      color: #4CAF50;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .add-property-form .btn {
+      background-color: #4CAF50;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+    }
+
+    .add-property-form .btn:hover {
+      background-color: #45a049;
+    }
+
+    .add-property-form .form-control:focus {
+      box-shadow: none;
+    }
+
+    .add-property-form .form-control::placeholder {
+      color: #999;
+    }
+
+
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="login-form">
+                <h2>Add property</h2>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% if error_message %}
+                    <p class="error" style="color: red;">{{ error_message }}</p>
+                    {% endif %}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" placeholder="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="" class="form-control" name="email" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password2" placeholder="confirm password">
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                </form>
+            </div>
+            <p>Already have an account? <a href="#">Sign in</a></p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

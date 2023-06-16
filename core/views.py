@@ -2,13 +2,16 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.models import User
 from properties.models import Property
+from agents.models import Agents
 # Create your views here.
 
 
 def home(request):
     latest_properties = Property.objects.all()[:9]
+    best_agents = Agents.objects.all()[:3]
     context = {
-        'latest_properties': latest_properties
+        'latest_properties': latest_properties,
+        'best_agents': best_agents
     }
     return render(request, 'core/index.html', context)
 

@@ -48,6 +48,7 @@
     }
 
 
+
 </style>
 <div class="container">
     <div class="row">
@@ -56,6 +57,13 @@
                 <h2>Login</h2>
                 <form action="{% url 'login' %}" method="POST">
                     {% csrf_token %}
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for error in form.non_field_errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     <div class="form-group">
                         <input type="text" class="form-control" name="username" placeholder="Username">
                     </div>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from properties.models import Property
 from agents.models import Agents
@@ -16,6 +17,18 @@ def home(request):
     return render(request, 'core/index.html', context)
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+        send_mail(
+            subject=f'New message from {name}',
+            message=message,
+            from_email=email,
+            recipient_list=['chineduudochuku66@gmail.com'],
+            fail_silently=False
+        )
+        return render(request, 'core/success.html')
     return render(request, 'core/contact.html')
 
 class RegisterView(View):

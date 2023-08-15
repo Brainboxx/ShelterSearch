@@ -14,7 +14,7 @@ class Property(models.Model):
     garages = models.IntegerField(blank=True)
     area = models.CharField(blank=True, max_length=100)
     description = models.TextField(max_length=1000)
-    agent = models.ForeignKey(Agents, on_delete=models.CASCADE)
+    agent = models.ForeignKey(Agents, on_delete=models.CASCADE, null=True, default=None)
 
 
     class Meta:

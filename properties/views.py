@@ -24,6 +24,7 @@ class PropertyDetailView(DetailView):
         property = self.get_object()
         context['property_images'] = property.property_images.all()
         context['amenities'] = property.amenity.all()
+        context['agent'] = property.agent
         return context
 
 

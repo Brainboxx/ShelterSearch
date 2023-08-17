@@ -13,15 +13,40 @@ This is a Django-based web application for a real estate website with a blog sec
 </ul>
 
 # Installation
-1. Clone the repository: (git clone https://github.com/Brainboxx/ShelterSearch.git)
-2. Change to the project directory: (cd ShelterSearch) 
-3. Create a virtual environment: (python3 -m venv myenv)
-4. Activate the virtual environment: (myenv/bin/activate)
-5. Install the project dependencies: (pip install -r requirements.txt)
-6. Set up the database: (python manage.py migrate)
-7. Create a superuser (admin) account: (python manage.py createsuperuser)
-8. Run the development server: (python manage.py runserver)
-9. Access the application in your web browser at http://localhost:8000.
+1. Clone the repository:
+   ```
+   git clone https://github.com/Brainboxx/ShelterSearch.git
+   ```
+3. Change to the project directory:
+   ```
+   cd ShelterSearch
+   ```
+5. Create a virtual environment:
+   ```
+   python3 -m venv myenv
+   ```
+7. Activate the virtual environment:
+   ```
+   myenv/bin/activate
+   ```
+9. Install the project dependencies:
+    ```
+    pip install -r requirements.txt
+    ```
+11. Set up the database:
+    ```
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+13. Create a superuser (admin) account:
+    ```
+    python manage.py createsuperuser
+    ```
+15. Run the development server:
+    ```
+    python manage.py runserver
+    ```
+17. Access the application in your web browser at http://localhost:8000.
 
 # Configuration
 The application can be configured using the settings.py file located in the project's root directory. Some of the configuration options include:

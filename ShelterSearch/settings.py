@@ -27,7 +27,7 @@ load_dotenv()
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -131,6 +131,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 

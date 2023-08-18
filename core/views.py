@@ -4,15 +4,18 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from properties.models import Property
 from agents.models import Agents
+from blog.models import BlogPost
 # Create your views here.
 
 
 def home(request):
     latest_properties = Property.objects.all()[:9]
     best_agents = Agents.objects.all()[:3]
+    latest_news = BlogPost.objects.all()[:3]
     context = {
         'latest_properties': latest_properties,
-        'best_agents': best_agents
+        'best_agents': best_agents,
+        'latest_news': latest_news
     }
     return render(request, 'core/index.html', context)
 
@@ -52,9 +55,12 @@ class RegisterView(View):
             user = User.objects.create_user(username=username, email=email, password=password)
             return redirect('login')
 
+
 class AboutView(View):
+    agents = Agents.objects.all()[:3]
+
     def get(self, request):
-        return render(request, 'core/about.html')
+        return render(request, 'core/about.html', {'agents': self.agents})
 
     def post(self, request):
-        return redirect('core/about.html')
+        return redirect('core/about.html', {'agents': self.agents})

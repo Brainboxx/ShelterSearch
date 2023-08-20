@@ -130,7 +130,7 @@ USE_TZ = True
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 
-STATIC_URL = 'static/'
+STATIC_URL = 'productionfiles/'
 STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

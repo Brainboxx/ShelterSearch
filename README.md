@@ -69,6 +69,8 @@ The application can be configured using the settings.py file located in the proj
  3. Make your changes and commit them.
  4. Push your changes to your forked repository.
  5. Submit a pull request explaining your changes.
+
+This project is deployed, you can check it out https://shelterseach.onrender.com/
  
 # License
 This project is licensed under the MIT License.
